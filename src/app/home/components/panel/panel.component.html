@@ -1,0 +1,32 @@
+<div class="table-container">
+    <table class="modern-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Duración</th>
+          <th>Archivado</th>
+          <th>Desde</th>
+          <th>Hacia</th>
+          <th>Dirección</th>
+          <th>Tipo</th>
+          <th>Vía</th>
+          <th>Creado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let call of calls" (click)="getId(call.id)">
+          <td >{{ call.id  }}</td>
+          <td>{{ call.duration | date:'mm:ss' }}</td>
+          <td><span [class]="call.is_archived ? 'badge archived' : 'badge not-archived'">
+            {{ call.is_archived ? 'Sí' : 'No' }}
+          </span></td>
+          <td>{{ call.from }}</td>
+          <td>{{ call.to }}</td>
+          <td>{{ call.direction }}</td>
+          <td>{{ call.call_type }}</td>
+          <td>{{ call.via }}</td>
+          <td>{{ call.created_at | date:'short' }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

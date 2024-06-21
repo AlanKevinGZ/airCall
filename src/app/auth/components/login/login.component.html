@@ -1,0 +1,23 @@
+<section class="login">
+    <div class="container">
+        <div class="login_container">
+            <div class="title">
+                <h1>Login</h1>
+                <p>Enter your credentials to access the customer service calls.</p>
+            </div>
+            <div class="formLogin">
+                <form action="" (submit)="onLogin()" [formGroup]="formLogin">
+                    <div class="inputs">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" formControlName="email">
+                    </div>
+                    <div class="inputs">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" formControlName="password">
+                    </div>
+                    <input type="submit" value="Login">
+                </form>
+            </div>
+        </div>
+    </div>
+</section>

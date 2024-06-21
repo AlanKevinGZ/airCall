@@ -1,0 +1,28 @@
+<div class="error" *ngIf="isError"> 
+    <img src="https://http.cat/images/404.jpg" alt="" >
+</div>
+
+<div class="info" *ngIf="isLoading && !isError">
+  <h1>{{ call.id }}</h1>
+  <p class="duration">{{ call.duration | date : "mm:ss" }}</p>
+  <p>
+    <span [class]="call.is_archived ? 'badge archived' : 'badge not-archived'">
+      {{ call.is_archived ? "Sí" : "No" }}
+    </span>
+  </p>
+  <p class="from-to">De: {{ call.from }} | A: {{ call.to }}</p>
+  <p class="direction">{{ call.direction }}</p>
+  <p class="call-type">{{ call.call_type }}</p>
+  <p class="via">{{ call.via }}</p>
+  <p class="created-at">{{ call.created_at | date : "short" }}</p>
+
+  <div class="note">
+    <h2>Notas: </h2>
+    <p *ngIf="call.notes.length === 0">No hay notas</p>
+    <div *ngFor="let item of call.notes" class="note-item">
+      <p>id: {{item.id}}</p>
+      <p>{{item.content}}</p>
+      <hr>
+    </div>
+  </div>
+</div>
